@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Education App</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Welcome to the Farmer Education App</h1>
+    <div id="user-profile">
+        <h2>User Profile</h2>
+        <form>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location"><br><br>
+            <label for="farm_size">Farm Size (acres):</label>
+            <input type="number" id="farm_size" name="farm_size"><br><br>
+            <label for="crops">Crops Grown:</label>
+            <select id="crops" name="crops" multiple>
+                <option value="rice">Rice</option>
+                <option value="wheat">Wheat</option>
+                <option value="corn">Corn</option>
+                <option value="cotton">Cotton</option>
+                </option>
+            </select><br><br>
+            <label for="livestock">Livestock:</label>
+            <select id="livestock" name="livestock" multiple>
+                <option value="cows">Cows</option>
+                <option value="buffaloes">Buffaloes</option>
+                <option value="pigs">Pigs</option>
+                <option value="chickens">Chickens</option>
+            </select><br><br>
+            <button type="submit">Save Profile</button>
+        </form>
+    </div>
+
+    <div id="recommendations">
+        <h2>Personalized Recommendations</h2>
+        <p id="crop-recommendations"></p>
+        <p id="fertilizer-recommendations"></p>
+        <p id="market-price-alerts"></p>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="static/script.js"></script>
+</body>
+</html>
