@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Health Diagnosis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Crop Health Diagnosis</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="personalised.html">Personalised Farming Advice</a></li>
+                <li><a href="market.html">Market Prices</a></li>
+                <li><a href="weather.html">Weather Forecast & Alerts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="crop-health">
+            <h2>Diagnose Crop Health</h2>
+            <p>Enter the crop name to view common diseases, cures, and potential risks.</p>
+            <form id="crop-diagnosis-form">
+                <label for="crop-name">Crop Name:</label>
+                <input type="text" id="crop-name" name="crop-name" placeholder="e.g., Wheat, Rice" required>
+                <button type="submit">Diagnose</button>
+            </form>
+            <div id="diagnosis-result">
+                <!-- Diagnosis results will be displayed here -->
+            </div>
+        </section>
+
+        <section id="upcoming-diseases">
+            <h2>Upcoming Disease Risks</h2>
+            <ul>
+                <li><strong>Wheat:</strong> High risk of rust disease in humid conditions.</li>
+                <li><strong>Rice:</strong> Bacterial blight expected in water-logged fields.</li>
+                <li><strong>Maize:</strong> Increased cases of leaf blight due to recent weather changes.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Agricultural Solutions</p>
+    </footer>
+
+    <script>
+        document.getElementById('crop-diagnosis-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cropName = document.getElementById('crop-name').value.trim();
+            const diagnosisResult = document.getElementById('diagnosis-result');
+
+            if (cropName) {
+                // Simulate fetching diagnosis data (replace with real backend integration)
+                let diagnosis = '';
+
+                switch (cropName.toLowerCase()) {
+                    case 'wheat':
+                        diagnosis = `
+                            <h3>Common Diseases for Wheat</h3>
+                            <ul>
+                                <li><strong>Rust:</strong> Caused by fungi. Cure: Use fungicides like Propiconazole.</li>
+                                <li><strong>Powdery Mildew:</strong> Caused by Erysiphe graminis. Cure: Apply sulfur-based fungicides.</li>
+                            </ul>`;
+                        break;
+                    case 'rice':
+                        diagnosis = `
+                            <h3>Common Diseases for Rice</h3>
+                            <ul>
+                                <li><strong>Bacterial Blight:</strong> Caused by Xanthomonas. Cure: Use copper-based bactericides.</li>
+                                <li><strong>Sheath Blight:</strong> Caused by Rhizoctonia solani. Cure: Apply fungicides like Carbendazim.</li>
+                            </ul>`;
+                        break;
+                    default:
+                        diagnosis = `<p>Sorry, we don't have diagnosis information for "${cropName}" at the moment. Please consult an expert.</p>`;
+                        break;
+                }
+
+                diagnosisResult.innerHTML = diagnosis;
+            } else {
+                diagnosisResult.innerHTML = `<p>Please enter a crop name.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

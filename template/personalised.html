@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Farming Advice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Personalised Farming Advice</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="market.html">Market Prices</a></li>
+                <li><a href="weather.html">Weather Forecast & Alerts</a></li>
+                <li><a href="crop.html">Crop Health Diagnosis</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="personalised-advice">
+            <h2>Get Personalised Advice</h2>
+            <p>Enter the name of the crop to receive specific advice on irrigation, water requirements, and recommended pesticides or manures.</p>
+            <form id="crop-advice-form">
+                <label for="crop-name">Crop Name:</label>
+                <input type="text" id="crop-name" name="crop-name" placeholder="e.g., Wheat, Rice" required>
+                <button type="submit">Get Advice</button>
+            </form>
+            <div id="advice-result">
+                <!-- Personalised advice will be displayed here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Agricultural Solutions</p>
+    </footer>
+
+    <script>
+        document.getElementById('crop-advice-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cropName = document.getElementById('crop-name').value.trim();
+            const adviceResult = document.getElementById('advice-result');
+
+            if (cropName) {
+                // Simulate fetching advice (replace with real backend integration as needed)
+                let advice = '';
+
+                switch (cropName.toLowerCase()) {
+                    case 'wheat':
+                        advice = `Irrigation: Every 20-25 days<br>
+                                  Water Requirement: 350-450 mm per season<br>
+                                  Pesticides: Use Chlorpyrifos for pest control<br>
+                                  Manures: Apply compost or urea during sowing.`;
+                        break;
+                    case 'rice':
+                        advice = `Irrigation: Maintain a flooded field during the growth stage<br>
+                                  Water Requirement: 1,200-1,600 mm per season<br>
+                                  Pesticides: Use Carbaryl for stem borer control<br>
+                                  Manures: Apply phosphorus-rich fertilizers.`;
+                        break;
+                    default:
+                        advice = `Sorry, advice for "${cropName}" is not available at the moment. Please consult an expert.`;
+                        break;
+                }
+
+                adviceResult.innerHTML = `<h3>Advice for ${cropName}</h3><p>${advice}</p>`;
+            } else {
+                adviceResult.innerHTML = `<p>Please enter a crop name.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
